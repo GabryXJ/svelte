@@ -5,7 +5,12 @@
   function addTask() {
     if (newTask.trim() !== '') {
       tasks = [...tasks, { text: newTask, completed: false }];
+      newTask = '';
     }
+  }
+
+  function deleteTask(){
+    tasks = tasks.filter(task => task !== tasks[tasks.indexOf(task)]);
   }
 
 
@@ -23,7 +28,8 @@
 <main>
   <h1>To-Do List</h1>
   <input bind:value={newTask} placeholder="Add a new task" />
-  <button on:click={addTask}>Add Task</button>
+  <button on:click={addTask}>Add Task</button> 
+  <button on:click={deleteTask}>Remove al Task</button>
 
   <ul>
     {#each tasks as task, index}
@@ -60,6 +66,8 @@
   ul {
     list-style: none;
     padding: 0;
+    background-color: rgb(136, 136, 136);
+    border-radius: 10px;
   }
 
   li {
