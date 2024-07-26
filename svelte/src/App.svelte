@@ -5,14 +5,13 @@
   function addTask() {
     if (newTask.trim() !== '') {
       tasks = [...tasks, { text: newTask, completed: false }];
-      newTask = '';
     }
   }
 
 
   function toggleComplete(index) {
     tasks = tasks.map((task, i) => 
-      i === index ? { ...task, completed: !task.completed } : task
+      i === index ? { ...task, completed: task.completed } : task
     );
   }
 
