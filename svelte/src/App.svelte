@@ -29,7 +29,7 @@
   <h1>To-Do List</h1>
   <input bind:value={newTask} placeholder="Add a new task" />
   <button on:click={addTask}>Add Task</button> 
-  <button on:click={deleteTask}>Remove al Task</button>
+  <button class="deletebutton" on:click={deleteTask}>Remove al Task</button>
 
   <ul>
     {#each tasks as task, index}
@@ -61,6 +61,26 @@
     margin: 0.5em;
     padding: 0.5em 1em;
     font-size: 1em;
+    border-radius: 10px;
+    border: 0;
+    transition: background-color 0.3s;
+  }
+
+  button:hover{
+    background-color: #ccc; 
+    transition: background-color 0.3s;
+  }
+
+  .deletebutton{
+    background-color: red;
+    transition: background-color 0.3s;
+    color: white;
+    border: 0; 
+  }
+
+  .deletebutton:hover{
+    background-color: #680000;  
+    transition: background-color 0.3s;
   }
 
   ul {
